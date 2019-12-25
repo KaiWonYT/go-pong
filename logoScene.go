@@ -23,13 +23,14 @@ func DrawLogo() {
 	}
 
 	rl.BeginDrawing()
+	defer rl.EndDrawing()
+
 	rl.ClearBackground(rl.RayWhite)
 
 	alphaValue := framesCounter * 10
 	if alphaValue > 254 {
 		alphaValue = 255
 	}
-	rl.DrawText(logoText, logoPosX, logoPosY, 40, rl.Color{R: 0, G: 0, B: 0, A: uint8(alphaValue)})
 
-	rl.EndDrawing()
+	rl.DrawText(logoText, logoPosX, logoPosY, 40, rl.Color{R: 0, G: 0, B: 0, A: uint8(alphaValue)})
 }

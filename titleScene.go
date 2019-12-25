@@ -25,7 +25,6 @@ func InitTitle() {
 func DrawTitle() {
 	if rl.IsKeyPressed(32) {
 		screen = 2
-		return
 	}
 
 	framesCounter++
@@ -35,11 +34,12 @@ func DrawTitle() {
 	}
 
 	rl.BeginDrawing()
+	defer rl.EndDrawing()
+
 	rl.ClearBackground(rl.RayWhite)
 
 	rl.DrawText(titleText, titlePosX, 40, 100, rl.Black)
 	rl.DrawText(versionText, versionPosX, 95, 30, rl.LightGray)
 	rl.DrawText(startMessage, startPosX, height-70, 30, rl.LightGray)
 
-	rl.EndDrawing()
 }
